@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const mongoURI = 'mongodb://localhost:27017/chatty';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+// Serve static assets from the public_html folder
+app.use(express.static(path.join(__dirname, 'public_html')));
 
 const Schema = mongoose.Schema;
 const ChatMessageSchema = new Schema({
@@ -20,9 +22,11 @@ const ChatMessageSchema = new Schema({
 
 const ChatMessage = mongoose.model('ChatMessage', ChatMessageSchema);
 
-app.get('/', (req, res) => {
-  res.send("/public_html/index.html");
-})
+// Serve about.html file on the /about path
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public_html', 'about.html'));
+});
+
 app.get('/chats', async (req, res) => {
   const messages = await ChatMessage.find().sort('time');
   res.json(messages);
