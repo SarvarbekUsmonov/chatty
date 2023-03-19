@@ -21,7 +21,7 @@ const ChatMessageSchema = new Schema({
 const ChatMessage = mongoose.model('ChatMessage', ChatMessageSchema);
 
 app.get('/', (req, res) => {
-  res.send("public_html");
+  res.send("/public_html/index.html");
 })
 app.get('/chats', async (req, res) => {
   const messages = await ChatMessage.find().sort('time');
