@@ -23,8 +23,8 @@ const ChatMessageSchema = new Schema({
 const ChatMessage = mongoose.model('ChatMessage', ChatMessageSchema);
 
 // Serve about.html file on the /about path
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public_html', 'about.html'));
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public_html' + '/index.html');
 });
 
 app.get('/chats', async (req, res) => {
