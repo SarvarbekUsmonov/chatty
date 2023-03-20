@@ -28,7 +28,7 @@ function displayMessages(messages) {
   chatWindow.innerHTML = '';
   messages.forEach((message) => {
     const messageElement = document.createElement('p');
-    messageElement.innerHTML = <strong>${message.alias}:</strong> ${message.message};
+    messageElement.innerHTML = `<strong>${message.alias}:</strong> ${message.message}`;
     chatWindow.appendChild(messageElement);
   });
   chatWindow.scrollTop = chatWindow.scrollHeight;

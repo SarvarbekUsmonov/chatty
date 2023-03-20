@@ -2,13 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public_html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const mongoURI = 'mongodb://localhost:27017/chatty';
+const mongoURI = 'mongodb://127.0.0.1:27017/chatty';
+mongoose.connection.on("connected", () => console.log("Connected"))
+mongoose.connection.on("error", (err) => console.log(err))
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const Schema = mongoose.Schema;
