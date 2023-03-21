@@ -7,11 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Sarvarbek Usmonov",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^5.1.0",
     "mongoose": "^7.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://SarvarbekUsmonov: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@github.com/SarvarbekUsmonov/chatty.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SarvarbekUsmonov/chatty/issues"
+  },
+  "homepage": "https://github.com/SarvarbekUsmonov/chatty#readme"
 }
